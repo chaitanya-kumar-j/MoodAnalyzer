@@ -74,7 +74,7 @@ namespace MoodAnalyzerTestCases
             }
         }
         [Test]
-        public void GivenMoodAnalyser_ShouldReturnMoodAnalyserObject()
+        public void GivenMoodAnalyser_WhenParameterizedConstructor_ShouldReturnMoodAnalyserObject()
         {
             object expected = new MoodAnalyser("Happy");
             object actual = MoodAnalyzerFactory.ParameterizedConstructor("MoodAnalyzerProject.MoodAnalyze", "MoodAnalyze", "Happy");
@@ -83,7 +83,7 @@ namespace MoodAnalyzerTestCases
 
         [Test]
 
-        public void GivenMoodAnalyserWrongClassName_ShouldThrowMoodAnalysisException()
+        public void GivenMoodAnalyserWrongClassName_WhenParameterizedConstructor_ShouldThrowMoodAnalysisException()
         {
             string expected = "No such class found";
             try
@@ -98,7 +98,7 @@ namespace MoodAnalyzerTestCases
 
         [Test]
 
-        public void GivenMoodAnalyserClassNameWithNoProperConstructor_ShouldThrowMoodAnalysisException()
+        public void GivenMoodAnalyserClassNameWithNoProperConstructor_WhenParameterizedConstructor_ShouldThrowMoodAnalysisException()
         {
             string expected = "No such Constructor found";
             try
