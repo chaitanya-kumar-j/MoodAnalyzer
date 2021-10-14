@@ -11,21 +11,27 @@ namespace MoodAnalyzer
         {
             this.moodMessage = moodMessage;
         }
+        public MoodAnalyser()
+        {
+
+        }
         public string AnalyseMood()
         {
             try
             {
-                if (moodMessage.ToLower().Contains("sad"))
+                if (this.moodMessage.Equals(string.Empty))
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.EMPTY_MOOD, "Empty message passed.");
+                }
+                if (this.moodMessage.ToLower().Contains("sad"))
                 {
                     return "SAD";
                 }
-                else
-                {
-                    return "HAPPY";
-                }
+                return "HAPPY";
             }
             catch(NullReferenceException)
             {
+                // throw new CustomExceptions(CustomExceptions.ExceptionType.NULL_MOOD, "Null message passed.");
                 return "HAPPY";
             }
         }
