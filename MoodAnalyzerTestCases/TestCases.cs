@@ -52,7 +52,7 @@ namespace MoodAnalyzerTestCases
             string expected = "No such class found";
             try
             {
-                object obj = MoodAnalyzerFactory.CreateMoodAnalyser("MoodAnalyserProject.MoodAnalyzer", "MoodAnalyzer");
+                object obj = MoodAnalyzerFactory.CreateMoodAnalyser("MoodAnalyzer.MoodAnalyser", "MoodAnalyser");
             }
             catch (CustomExceptions ex)
             {
@@ -66,7 +66,7 @@ namespace MoodAnalyzerTestCases
             string expected = "No such Constructor found";
             try
             {
-                object obj = MoodAnalyzerFactory.CreateMoodAnalyser("MoodAnalyserProject.MoodAnalyze", "MoodAnalyzer");
+                object obj = MoodAnalyzerFactory.CreateMoodAnalyser("MoodAnalyzer.MoodAnalyser", "MoodAnalyzer");
             }
             catch (CustomExceptions ex)
             {
@@ -77,7 +77,7 @@ namespace MoodAnalyzerTestCases
         public void GivenMoodAnalyser_WhenParameterizedConstructor_ShouldReturnMoodAnalyserObject()
         {
             object expected = new MoodAnalyser("Happy");
-            object actual = MoodAnalyzerFactory.ParameterizedConstructor("MoodAnalyzerProject.MoodAnalyze", "MoodAnalyze", "Happy");
+            object actual = MoodAnalyzerFactory.ParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "MoodAnalyser", "Happy");
             expected.Equals(actual);
         }
 
@@ -88,7 +88,7 @@ namespace MoodAnalyzerTestCases
             string expected = "No such class found";
             try
             {
-                object actual = MoodAnalyzerFactory.ParameterizedConstructor("MoodAnalyzerProject.MoodAnalyzer", "MoodAnalyzer", "Happy");
+                object actual = MoodAnalyzerFactory.ParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "MoodAnalyser", "Happy");
             }
             catch (CustomExceptions ex)
             {
@@ -97,13 +97,12 @@ namespace MoodAnalyzerTestCases
         }
 
         [Test]
-
         public void GivenMoodAnalyserClassNameWithNoProperConstructor_WhenParameterizedConstructor_ShouldThrowMoodAnalysisException()
         {
             string expected = "No such Constructor found";
             try
             {
-                object actual = MoodAnalyzerFactory.ParameterizedConstructor("MoodAnalyzerProject.MoodAnalyze", "MoodAnalyzer", "I am happy");
+                object actual = MoodAnalyzerFactory.ParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "MoodAnalyser", "I am happy");
             }
             catch (CustomExceptions ex)
             {
